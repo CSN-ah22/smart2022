@@ -1,11 +1,11 @@
-import logo from './logo.svg';
+import cherry from './cherry.jpg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={cherry} className="App-logo" alt="logo" />
         <p>
           체루체루체루체루체루앵두앵두앵두앵두앵두@!
         </p>
