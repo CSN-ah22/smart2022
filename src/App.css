@@ -45,3 +45,15 @@ div > img {
   width: 50px;
   height: 50px;
 } 
+
+.css-o69gx8-MuiCardMedia-root{
+  display: block;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-position: center;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
