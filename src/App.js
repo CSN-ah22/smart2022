@@ -1,46 +1,68 @@
-import { faker } from "@faker-js/faker";
-import cherry from './cherry.jpg';
+import faker from '@faker-js/faker';  //영문 버전의 fakerjs
+import faker_ko from '@faker-js/faker/locale/ko';  //한글 버전의 fakerjs
 import './App.css';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
-const testData=[
-  {
-    text: "typesetting industry. Lorem Ipsum has been the industrys",
-    imgUrl: "https://www.urbanbrush.net/web/wp-content/uploads/edd/2020/11/urbanbrush-20201102111234985947.jpg"
-  },{
 
-  text: "Lorem Ipsum is simply dummy text of the printing and",
-  imgUrl: "https://i.pinimg.com/originals/a7/da/33/a7da33c3d795acb917c6923415698f5b.png"
-  },
-  {
-    text: "Lorem Ipsum is simply dummy text of the printing and",
-    imgUrl: "https://i.pinimg.com/originals/a7/da/33/a7da33c3d795acb917c6923415698f5b.png"
-  }
-]
-
-//JSX
- 
 function App() {
-  const h1Element = <h1>H1 제목 태그 입니다</h1>
-  const imgElement = <img src={cherry} className="App-logo" alt="logo" />
+  const userDatas = [];
 
+  while(userDatas.length < 5){
+    userDatas.push({
+      avatar: faker.image.avatar(),
+      name: `${faker_ko.name.lastName()}${faker_ko.name.firstName()}`,
+      email: faker.internet.email(),
+      jobTitle: faker.name.jobTitle(),
+      phoneNo: faker.phone.phoneNumber()
+    })
+  }
+
+  const userCards = userDatas.map((userData, idx) => {
+    return <Card sx={{ maxWidth: 345 }}>
+    <CardMedia
+      component="img"
+      height="140"
+      image={ userData.avatar }
+      alt="green iguana"
+    />
+    <CardContent>
+      <Typography gutterBottom variant="h5" component="div">
+       <div key={idx}>
+       <h4>{ userData.jobTitle }</h4>
+       <img src={ userData.avatar } alt="사용자 프로필용 아바타"></img>
+       <h5>{ userData.name }</h5>
+       {userData.email} <br />
+      {userData.phoneNo}
+     </div>
+      </Typography>
+      <Typography variant="body2" color="text.secondary">
+        Lizards are a widespread group of squamate reptiles, with over 6,000
+        species, ranging across all continents except Antarctica
+      </Typography>
+    </CardContent>
+    <CardActions>
+      <Button size="small">Share</Button>
+      <Button size="small">Learn More</Button>
+    </CardActions>
+  </Card>
+    // <div key={idx}>
+    //   <h4>{ userData.jobTitle }</h4>
+    //   <img src={ userData.avatar } alt="사용자 프로필용 아바타"></img>
+    //   <h5>{ userData.name }</h5>
+    //   {userData.email} <br />
+    //   {userData.phoneNo}
+    // </div>
+  })
+
+  console.log(userDatas)
   return (
     <div className="App">
-      <header className="App-header">
-        {h1Element}
-        {imgElement}
-        <p>
-          체루체루체루체루체루앵두앵두앵두앵두앵두@!
-        </p>
-        <ul>
-        {testData.map((contents)=>{
-        return <div>
-          <img src={faker.image.avatar()} alt="아바타 사진" />
-          {contents.text}
-          <img src={faker.image.cats()} alt="고양이 사진" />
-        </div>
-      })}
-        </ul>
-      </header>
+        {userCards}
     </div>
   );
 }
