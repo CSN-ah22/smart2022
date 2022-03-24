@@ -67,3 +67,9 @@ div > img {
   object-fit: cover;
   height: 100%;
 }
+html, body, #root {height: 100%}
+
+#root{
+  display: inherit;
+}
+
