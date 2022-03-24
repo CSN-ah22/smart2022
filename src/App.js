@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import UserCardList from './components/UserCardList';
 import { makeUserDatas } from './Utils';
 
-const userDatas = makeUserDatas(5);
+const userDatas = makeUserDatas(15);
 
   const UserDatas = [];
 
