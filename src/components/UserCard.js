@@ -21,7 +21,7 @@ function UserCard(props) {
                 <h4>{ userData.jobTitle }</h4>
             </Typography>
             <Typography variant="body2" color="text.secondary">
-                <h5>{ userData.name }</h5>
+                { userData.name }
                 {userData.email} <br />
                 {userData.phoneNo}
             </Typography>

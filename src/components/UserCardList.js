@@ -7,13 +7,13 @@ import { paginate } from '../Utils'
 function UserCardList(props){
     const pageContentsCount = 6;
     const [pageNo, setPageNo] = useState(1);
-    const [currntUserData, setcurrentUserData] = useState(props.userDatas, pageContentsCount, pageNo);
+    const [currntUserData, setcurrentUserData] = useState(paginate(props.userDatas, pageContentsCount, pageNo));
 
     const handleChangePageNo = (event, value) => {
         setPageNo(value);
         setcurrentUserData(paginate(props.userDatas, pageContentsCount, value));
       }
-
+    console.log(currntUserData);
     const userCards = currntUserData.map((userData, idx) => {
         return <Grid item xs={2} sm={4} md={4} key={idx}>
            <UserCard userData={userData} idx={idx} />
