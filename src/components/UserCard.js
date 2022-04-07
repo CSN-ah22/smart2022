@@ -4,10 +4,20 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useEffect, useState } from 'react';
+import {getRandomInt} from '../Utils';                                    
 
 
 function UserCard(props) {
     const { userData, idx } = props;
+    const [fontColor, setFontColor] = useState(null);
+    useEffect(()=>{
+        const changeFontColor = () => {
+            setFontColor(`rgb(${getRandomInt(0,255)},${getRandomInt(0,255)},${getRandomInt(0,255)})`)
+        }
+       setInterval(changeFontColor, 1000);
+    }, [])
+
     return <div key={idx}>
             <Card sx={{ maxWidth: 345 }}>
             <CardMedia
