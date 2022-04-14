@@ -23,7 +23,7 @@ function WeatherCard(props) {
         const cityName = selectedCityData.name;
         const CityGetDate = cityName+'_저장시간'
         const date_local = Date.now() - localStorage.getItem(CityGetDate);
-        if(date_local > date_local / 1000 / 60 > 60){
+        if(date_local / 1000 / 60 > 60){
     
         axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${selectedCityData.lat}&lon=${selectedCityData.lon}&lang=kr&units=metric&appid=06ed93a46e05bcc19ab1beac8ea685b9`)
         .then(result => {
