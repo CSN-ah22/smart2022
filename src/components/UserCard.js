@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
-import {getRandomInt} from '../Utils';                                    
+import {getRandomInt} from '../Utils';                                     
 
 
 function UserCard(props) {

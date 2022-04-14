@@ -6,7 +6,7 @@ import { Switch } from '@mui/material';
 import WeatherCard from './components/WeatherCard';
 import UserCardList from './components/UserCardList';
 import { makeUserDatas } from './Utils';
-import { Grid } from '@mui/material';
+import { Grid } from '@mui/material'; 
 
 const userDatas = makeUserDatas(128);
 

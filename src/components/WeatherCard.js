@@ -78,5 +78,5 @@ function WeatherCard(props) {
         }
     </>
 }
-
+ 
 export default WeatherCard;

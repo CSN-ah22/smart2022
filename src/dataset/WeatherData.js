@@ -5,7 +5,7 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import AirIcon from '@mui/icons-material/Air';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import CloudIcon from '@mui/icons-material/Cloud';
-import BlurOnIcon from '@mui/icons-material/BlurOn';
+import BlurOnIcon from '@mui/icons-material/BlurOn'; 
 
 export const cityLatLon = [
     { name: "서울", lat: 37.5665, lon: 127.0246 },

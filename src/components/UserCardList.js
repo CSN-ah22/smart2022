@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import { Pagination } from '@mui/material';
 import UserCard from './UserCard';
-import { paginate } from '../Utils'
+import { paginate } from '../Utils' 
 
 function UserCardList(props){
     const pageContentsCount = 6;
