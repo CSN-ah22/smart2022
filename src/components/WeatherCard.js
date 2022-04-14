@@ -25,7 +25,7 @@ function WeatherCard(props) {
         const date_local = Date.now() - localStorage.getItem(CityGetDate);
         if(date_local > date_local / 1000 / 60 > 60){
     
-        axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${selectedCityData.lat}&lon=${selectedCityData.lon}&lang=kr&units=metric&appid=b1cd9e3d5006fb41508c9ae443a66edf`)
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${selectedCityData.lat}&lon=${selectedCityData.lon}&lang=kr&units=metric&appid=06ed93a46e05bcc19ab1beac8ea685b9`)
         .then(result => {
           setWeatherData(result.data);
           localStorage.setItem(cityName, JSON.stringify(result.data));
