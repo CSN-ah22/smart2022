@@ -79,4 +79,4 @@ function WeatherCard(props) {
     </>
 }
  
-export default WeatherCard; 
+export default WeatherCard;  
