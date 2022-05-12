@@ -7,6 +7,7 @@ import WeatherCard from './components/WeatherCard';
 import UserCardList from './components/UserCardList';
 import { makeUserDatas } from './Utils';
 import { Grid } from '@mui/material'; 
+import TopBar from './components/TopBar'
 
 const userDatas = makeUserDatas(128);
 
@@ -36,8 +37,8 @@ function App() {
       color: 'text.primary',
       p: 1
     }}>
+    <TopBar/>
     <Container maxWidth="lg">
-      
       <Grid container spacing={{ xs: 2, md: 3}} columns={{ xs: 4, sm: 8, md: 12}}>
         {
         [1,2,3].map((no)=> {
