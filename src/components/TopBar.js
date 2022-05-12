@@ -13,13 +13,13 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['Products', 'Pricing', 'Blog',"Profile"];
+const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-const login_setting = false ;
 
 const TopBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [isLogin, setIsLogin] = React.useState(false);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -32,25 +32,21 @@ const TopBar = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = (setting) => {
+    if(setting === "Logout") setIsLogin(false);
     setAnchorElUser(null);
   };
-
-  const login_check = (state = login_settings)=>
-  {
-      if(state==true){
-        
-      }else{
-
-      }
-  }
 
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography variant="h6" noWrap component="a" href="/"
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -131,7 +127,9 @@ const TopBar = () => {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+        {
+            isLogin ?
+            <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -153,14 +151,16 @@ const TopBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {login_setting = settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={()=>handleCloseUserMenu(setting)}>
                   <Typography textAlign="center">{setting}</Typography>
-                </MenuItem> 
+                </MenuItem>
               ))}
-              
             </Menu>
           </Box>
+          :
+          <div onClick={()=>setIsLogin(true)}>로그인</div>
+        }
         </Toolbar>
       </Container>
     </AppBar>
